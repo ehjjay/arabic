@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flashcard for Memorization</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f4f8;
+      color: #333;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 26px;
+      color: #444;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .flashcard-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .flashcard {
+      width: 100%;
+      height: 150px;
+      perspective: 1000px;
+      cursor: pointer;
+      border-radius: 8px;
+      margin: 20px 0; /* Adds margin between cards */
+    }
+
+    .flashcard .front,
+    .flashcard .back {
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-size: 18px; /* Base font size for non-Arabic text */
+      padding: 20px;
+      border-radius: 8px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.6s;
+    }
+
+    .flashcard .front {
+      background: #e3f2fd;
+      color: #1a237e;
+    }
+
+    .flashcard .back {
+      background: #c8e6c9;
+      color: #2e7d32;
+      transform: rotateY(180deg);
+    }
+
+    .flashcard .front span,
+    .flashcard .back span {
+      font-size: 24px; /* Larger font for Arabic text and emoji */
+    }
+
+    .flashcard.flipped .front {
+      transform: rotateY(180deg);
+    }
+
+    .flashcard.flipped .back {
+      transform: rotateY(0);
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 16px;
+      color: #666;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Arabic Flashcards for Memorization</h1>
+  <div class="flashcard-container">
+    <div class="flashcard" onclick="flipCard(this)">
+      <div class="front">
+        <span>🌟 أنا اسمي محمد</span>
+      </div>
+      <div class="back">
+        <span>My name is Mohammed</span>
+      </div>
+    </div>
+    <div class="flashcard" onclick="flipCard(this)">
+      <div class="front">
+        <span>🌅 صباح كل يوم أصحو من النوم نشيطًا</span>
+      </div>
+      <div class="back">
+        <span>Every morning, I wake up energetic</span>
+      </div>
+    </div>
+    <div class="flashcard" onclick="flipCard(this)">
+      <div class="front">
+        <span>🛏️ في الساعة السادسة أرتب سريري</span>
+      </div>
+      <div class="back">
+        <span>At six o'clock, I make my bed</span>
+      </div>
+    </div>
+    <div class="flashcard" onclick="flipCard(this)">
+      <div class="front">
+        <span>🧼 وأغسل وجهي وأنظف أسناني</span>
+      </div>
+      <div class="back">
+        <span>I wash my face and brush my teeth</span>
+      </div>
+    </div>
+    <div class="flashcard" onclick="flipCard(this)">
+      <div class="front">
+        <span>👔 ثم أرتدي ملابس المدرسة</span>
+      </div>
+      <div class="back">
+        <span>Then I wear my school uniform</span>
+      </div>
+    </div>
+    <div class="flashcard" onclick="flipCard(this)">
+      <div class="front">
+        <span>🍳 وأتناول فطوري</span>
+      </div>
+      <div class="back">
+        <span>And I have my breakfast</span>
+      </div>
+    </div>
+    <div class="flashcard" onclick="flipCard(this)">
+      <div class="front">
+        <span>🚌 ثم أذهب إلى المدرسة بالحافلة</span>
+      </div>
+      <div class="back">
+        <span>Then I go to school by bus</span>
+      </div>
+    </div>
+    <div class="flashcard" onclick="flipCard(this)">
+      <div class="front">
+        <span>⏰ في الساعة السابعة</span>
+      </div>
+      <div class="back">
+        <span>At seven o'clock</span>
+      </div>
+    </div>
+    <div class="flashcard" onclick="flipCard(this)">
+      <div class="front">
+        <span>😊 أنا أجلس في الصف سعيدًا</span>
+      </div>
+      <div class="back">
+        <span>I sit in the classroom happily</span>
+      </div>
+    </div>
+    <div class="flashcard" onclick="flipCard(this)">
+      <div class="front">
+        <span>👨‍🏫 وأستمع إلى معلمي</span>
+      </div>
+      <div class="back">
+        <span>And I listen to my teacher</span>
+      </div>
+    </div>
+    <div class="flashcard" onclick="flipCard(this)">
+      <div class="front">
+        <span>🚗 أنا أعود من المدرسة بالسيارة</span>
+      </div>
+      <div class="back">
+        <span>I return from school by car</span>
+      </div>
+    </div>
+    <div class="flashcard" onclick="flipCard(this)">
+      <div class="front">
+        <span>🕒 في الساعة الثالثة</span>
+      </div>
+      <div class="back">
+        <span>At three o'clock</span>
+      </div>
+    </div>
+  </div>
+  <footer>
+    Click a card to flip and reveal the translation.
+  </footer>
+
+  <script>
+    function flipCard(card) {
+      card.classList.toggle("flipped");
+    }
+  </script>
+</body>
+</html>
