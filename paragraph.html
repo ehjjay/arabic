@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arabic Flashcards</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .flashcards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .flashcard {
+      background-color: #fff;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .flashcard:hover {
+      transform: scale(1.05);
+      background-color: #f0f8ff;
+    }
+
+    .flashcard .question {
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+    .flashcard .answer {
+      font-size: 1.2rem;
+      color: #555;
+      display: none;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Arabic Flashcards</h1>
+    <div class="flashcards">
+      <!-- Flashcards will be generated here -->
+    </div>
+  </div>
+  <script>
+    const flashcardsContainer = document.querySelector('.flashcards');
+
+    // Flashcard data
+    const flashcards = [
+      { question: "📖 اللغة العربية", answer: "Arabic language" },
+      { question: "🍽️ أتناول", answer: "I eat/take" },
+      { question: "📚 المكتبة", answer: "The library" },
+      { question: "🌙 مساء كل يوم", answer: "Every evening" },
+      { question: "🌅 صباح كل يوم", answer: "Every morning" },
+      { question: "⏩ ثم", answer: "Then" },
+      { question: "👨‍👧‍👦 مع أبي", answer: "With my father" },
+      { question: "📝 أدرس", answer: "I study" },
+      { question: "🚶‍♂️ أذهب", answer: "I go" },
+      { question: "🪑 أجلس", answer: "I sit" },
+      { question: "🏫 الصف", answer: "The classroom" },
+      { question: "🎧 أستمع", answer: "I listen" },
+      { question: "👨‍🏫 المعلم", answer: "The teacher" },
+      { question: "🎮 ألعب", answer: "I play" },
+      { question: "📖 أقرأ", answer: "I read" },
+      { question: "😊 سعيد", answer: "Happy" },
+      { question: "🌱 صغيرة", answer: "Small (feminine)" },
+      { question: "📖 قصة", answer: "Story" },
+      { question: "🥞 الفطور", answer: "Breakfast" },
+    ];
+
+    // Generate flashcards dynamically
+    flashcards.forEach(({ question, answer }) => {
+      const flashcard = document.createElement('div');
+      flashcard.classList.add('flashcard');
+
+      const questionElem = document.createElement('div');
+      questionElem.classList.add('question');
+      questionElem.textContent = question;
+
+      const answerElem = document.createElement('div');
+      answerElem.classList.add('answer');
+      answerElem.textContent = answer;
+
+      flashcard.appendChild(questionElem);
+      flashcard.appendChild(answerElem);
+
+      // Show answer on click
+      flashcard.addEventListener('click', () => {
+        answerElem.style.display =
+          answerElem.style.display === 'block' ? 'none' : 'block';
+      });
+
+      flashcardsContainer.appendChild(flashcard);
+    });
+  </script>
+</body>
+</html>
